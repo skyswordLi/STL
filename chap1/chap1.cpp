@@ -1,5 +1,5 @@
 /*
-Big picture:: 
+Big picture::
 We will take each of the topic and expand on it.
 Excerpts are taken from the Excellent Video.
 Thank you "Stephan T. Lavavej"
@@ -14,7 +14,7 @@ Thank you "Stephan T. Lavavej"
 #include <ostream>
 #include <algorithm>
 #include<string>
-#define TEST1 1 
+#define TEST1 1
 #include <vector>
 #include <functional>
 
@@ -25,7 +25,7 @@ Thank you "Stephan T. Lavavej"
 		deque
 		forward_list
 
-	 Vector is sequence container, maintain the sequence of elements 
+	 Vector is sequence container, maintain the sequence of elements
 	 contiguous elements
 	 Resizing will be needed time to time when you push more elment.
       - do a geometric allocation. new_no_of_element  = k * (previous_no_of_element)
@@ -67,7 +67,7 @@ int main(){
 	std::cout<< *i << " ";
   }
   std::cout<< std::endl;
-  
+
   // sort is not stable (equal elements are not gaurenteed to come out in same order as input)
   std::sort(v.begin(),v.end()); // Can i use sort for List? No , List does not support random access iterator.
 
@@ -78,24 +78,24 @@ int main(){
   std::cout<< std::endl;
 
   std::vector<std::string> sv;
-  
+
   sv.push_back("cat");
   sv.push_back("antelope");
   sv.push_back("puppy");
   sv.push_back("bear");
-  sort(sv.begin(),sv.end(),std::greater<std::string>()); //third argument is function object or lambda expression 
-  
+  sort(sv.begin(),sv.end(),std::greater<std::string>()); //third argument is function object or lambda expression
+
 
   for(auto i = sv.begin(); i != sv.end(); ++i){ // need --std=c++0x in cmd line  while compiling.
   	std::cout<< *i  << " ";
   }
   std::cout<< std::endl;
-  
+
    sort(sv.begin(),sv.end(),
 	   [](const std::string& left,const std::string &right){
 		 return left.size() < right.size();
   		}
-  ); // lambda expression 
+  ); // lambda expression
   for(auto i = sv.begin(); i != sv.end(); ++i){ // need --std=c++0x in cmd line  while compiling.
   	std::cout<< *i  << " ";
   }
@@ -105,7 +105,7 @@ int main(){
 	   [](const std::string& left,const std::string &right){
 		 return left.size() < right.size();
   		}
-  ); // mantain the order of equal element. Its a stable version. Less efficient than sort () 
+  ); // mantain the order of equal element. Its a stable version. Less efficient than sort ()
   for(auto i = sv.begin(); i != sv.end(); ++i){ // need --std=c++0x in cmd line  while compiling.
   	std::cout<< *i  << " ";
   }
@@ -117,11 +117,11 @@ int main(){
   // use std::remove()
   v.erase(remove_if(v.begin(),v.end(),
 					[](int e){
-					  return (e%2 == 1);
+					  return (e % 2 == 1);
 						     })
            ,v.end()
 		  );
-	
+
   for(auto i = v.begin(); i != v.end(); ++i){ // need --std=c++0x in cmd line  while compiling.
   	std::cout<< *i  << " ";
   }
